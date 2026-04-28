@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Mis Facturas</h1>
+
+  <div class="card" *ngFor="let factura of facturas">
+    <h2>{{ factura.tienda }}</h2>
+    <p>Fecha: {{ factura.fecha }}</p>
+    <p>Total: $ {{ factura.total | number }}</p>
+    <p>Método: {{ factura.metodo_pago }}</p>
+
+    <h3>Items:</h3>
+    <ul>
+      <li *ngFor="let item of factura.items">
+        {{ item.description }} - ${{ item.valor | number }}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,17 +1,65 @@
 <div class="container">
-  <h1>Mis Facturas</h1>
 
-  <div class="card" *ngFor="let factura of facturas">
-    <h2>{{ factura.tienda }}</h2>
-    <p>Fecha: {{ factura.fecha }}</p>
+  <h1>Dashboard Financiero</h1>
+
+  <div class="stats">
+
+    <div class="card blue">
+      <h2>Total Gastado</h2>
+      <p>$ {{ totalGastado | number }}</p>
+    </div>
+
+    <div class="card green">
+      <h2>Total IVA</h2>
+      <p>$ {{ totalIVA | number }}</p>
+    </div>
+
+    <div class="card purple">
+      <h2>Facturas</h2>
+      <p>{{ cantidadFacturas }}</p>
+    </div>
+
+    <div class="card orange">
+      <h2>Última Compra</h2>
+      <p>{{ ultimaCompra }}</p>
+    </div>
+
+  </div>
+
+  <h2 class="titulo">Historial de Facturas</h2>
+
+  <div class="factura" *ngFor="let factura of facturas">
+
+    <div class="top">
+      <h3>{{ factura.tienda }}</h3>
+      <span>{{ factura.fecha }}</span>
+    </div>
+
     <p>Total: $ {{ factura.total | number }}</p>
     <p>Método: {{ factura.metodo_pago }}</p>
 
-    <h3>Items:</h3>
-    <ul>
-      <li *ngFor="let item of factura.items">
+    <div class="items">
+      <div *ngFor="let item of factura.items">
         {{ item.description }} - ${{ item.valor | number }}
-      </li>
-    </ul>
+      </div>
+    </div>
+
   </div>
+
+  
+  <!-- subir facturas -->
+
+  <div class="upload-box">
+
+  <h2>Subir Factura</h2>
+
+  <input type="file" (change)="seleccionarArchivo($event)">
+
+  <p *ngIf="cargando">Procesando OCR...</p>
+
+</div>
+
+
+
+
 </div>

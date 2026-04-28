@@ -15,4 +15,12 @@ export class FacturaService {
   getFacturas(): Observable<Factura[]> {
     return this.http.get<Factura[]>(this.api);
   }
+
+   subirFactura(file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post(`${this.api}/upload`, formData);
+  }
+
 }

@@ -1,65 +1,62 @@
 <div class="container">
+  
 
-  <h1>Dashboard Financiero</h1>
-
-  <div class="stats">
-
-    <div class="card blue">
-      <h2>Total Gastado</h2>
-      <p>$ {{ totalGastado | number }}</p>
-    </div>
-
-    <div class="card green">
-      <h2>Total IVA</h2>
-      <p>$ {{ totalIVA | number }}</p>
-    </div>
-
-    <div class="card purple">
-      <h2>Facturas</h2>
-      <p>{{ cantidadFacturas }}</p>
-    </div>
-
-    <div class="card orange">
-      <h2>Última Compra</h2>
-      <p>{{ ultimaCompra }}</p>
-    </div>
-
-  </div>
-
-  <h2 class="titulo">Historial de Facturas</h2>
-
-  <div class="factura" *ngFor="let factura of facturas">
-
-    <div class="top">
-      <h3>{{ factura.tienda }}</h3>
-      <span>{{ factura.fecha }}</span>
-    </div>
-
-    <p>Total: $ {{ factura.total | number }}</p>
-    <p>Método: {{ factura.metodo_pago }}</p>
-
-    <div class="items">
-      <div *ngFor="let item of factura.items">
-        {{ item.description }} - ${{ item.valor | number }}
-      </div>
-    </div>
-
-  </div>
+  <div class="layout">
 
   
-  <!-- subir facturas -->
 
-  <div class="upload-box">
+  <!-- MAIN -->
+  <main class="main-content">
 
-  <h2>Subir Factura</h2>
 
-  <input type="file" (change)="seleccionarArchivo($event)">
+    <!-- STATS -->
+    <app-stat-card>
 
-  <p *ngIf="cargando">Procesando OCR...</p>
+    </app-stat-card>
+
+    <!-- FACTURAS -->
+    <section class="history">
+
+      <div class="section-title">
+        <h2>Historial de Facturas</h2>
+      </div>
+
+      <div class="factura-card" *ngFor="let factura of facturas">
+
+        <div class="factura-head">
+          <div>
+            <h3>{{ factura.tienda }}</h3>
+            <small>{{ factura.fecha }}</small>
+          </div>
+
+          <div class="price">
+            $ {{ factura.total | number }}
+          </div>
+        </div>
+
+        <div class="meta">
+          Método de pago: {{ factura.metodo_pago }}
+        </div>
+
+        <div class="items">
+
+          <div class="item-row" *ngFor="let item of factura.items">
+            <span>{{ item.description }}</span>
+            <strong>$ {{ item.valor | number }}</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- LOADER -->
+    <div class="loader" *ngIf="cargando">
+      Procesando OCR...
+    </div>
+
+  </main>
 
 </div>
-
-
-
-
-</div>
+ 

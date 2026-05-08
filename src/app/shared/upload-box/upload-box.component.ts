@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FacturaService } from '../../core/services/factura.service';
-import { Factura } from '../../models/factura.model';
-import { StatCardComponent } from '../../shared/stat-card/stat-card.component';
+import {Factura} from '../../models/factura.model'; 
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-upload-box',
   standalone: true,
-  imports: [CommonModule, StatCardComponent],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  templateUrl: './upload-box.component.html',
+  styleUrl: './upload-box.component.css'
 })
-export class DashboardComponent implements OnInit {
+export class UploadBoxComponent implements OnInit {
 
 facturas: Factura[] = [];
 
@@ -20,6 +18,9 @@ facturas: Factura[] = [];
   cantidadFacturas = 0;
   ultimaCompra = '';
   cargando = false;
+  progreso = 0;
+  recientes: any[] = [];
+  subiendo = false; 
 
   constructor(private facturaService: FacturaService) {}
 
@@ -61,7 +62,6 @@ facturas: Factura[] = [];
       }
     });
   }
-
 
 
 }

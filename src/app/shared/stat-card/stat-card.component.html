@@ -1,0 +1,35 @@
+  <!-- STATS -->
+    <section class="stats">
+
+      <div class="card stat-card gasto">
+        <span>Total Gastado</span>
+        <h2>$ {{ totalGastado | number }}</h2>
+      </div>
+
+      <div class="card stat-card iva">
+        <span>Total IVA</span>
+        <h2>$ {{ totalIVA | number }}</h2>
+      </div>
+
+      <div class="card stat-card factura">
+        <span>Facturas</span>
+        <h2>{{ cantidadFacturas }}</h2>
+      </div>
+
+      <div class="card stat-card compra">
+        <span>Última Compra</span>
+        <h2>{{ ultimaCompra }}</h2>
+      </div>
+
+     <div class="card stat-card categoria">
+    <span>Categoría Top</span>
+
+    <div class="categoria-content">
+      <h2>{{ categoriaTop }}</h2>
+    </div>
+  </div>
+   
+
+      
+
+    </section>

@@ -1,0 +1,63 @@
+<!-- HTML -->
+<div class="sidebar-upload">
+
+  <!-- Zona principal -->
+  <div class="upload-card">
+    <h3 class="title">Subir Factura</h3>
+    <p class="subtitle">
+      Arrastra tus archivos aquí o haz clic para buscarlos
+    </p>
+
+    <div class="upload-zone">
+      <div class="upload-icon">📄</div>
+
+      <label class="upload-btn">
+        Seleccionar Archivo
+        <input type="file" (change)="seleccionarArchivo($event)">
+      </label>
+
+      <!-- Barra progreso -->
+      <div class="progress-box">
+        <div class="progress-info">
+          <span class="processing">🔄 Procesando OCR...</span>
+          <span class="percent">75%</span>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-fill"
+          [style.width.%]="progreso"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recientes -->
+    <div class="recent-section">
+      <h4>Recientes</h4>
+
+      <div class="recent-item">
+        <div class="file-info">
+          <div class="file-icon">📄</div>
+          <div>
+            <p class="file-name">factura_apple_24.pdf</p>
+            <p class="file-time">Hace 2 horas</p>
+          </div>
+        </div>
+        <span class="check">✔</span>
+      </div>
+
+      <div class="recent-item">
+        <div class="file-info">
+          <div class="file-icon">📄</div>
+          <div>
+            <p class="file-name">recibo_uber_test.png</p>
+            <p class="file-time">Hace 5 horas</p>
+          </div>
+        </div>
+        <span class="check">✔</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>

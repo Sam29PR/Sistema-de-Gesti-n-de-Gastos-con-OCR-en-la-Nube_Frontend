@@ -12,4 +12,5 @@ export interface Factura {
   iva: number;
   metodo_pago: string;
   items: Item[];
+  categoria?: string;
 }

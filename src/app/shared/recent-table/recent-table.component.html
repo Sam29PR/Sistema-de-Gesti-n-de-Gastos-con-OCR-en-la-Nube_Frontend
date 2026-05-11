@@ -1,1 +1,119 @@
-<p>recent-table works!</p>
+<div class="recent-table-card">
+
+  <!-- HEADER -->
+
+  <div class="table-header">
+
+    <h3>
+      Historial Reciente
+    </h3>
+
+    <button class="view-all-btn">
+      Ver todo
+    </button>
+
+  </div>
+
+  <!-- LOADING -->
+
+  <div
+    class="loading-box"
+    *ngIf="cargando"
+  >
+
+    <div class="loader"></div>
+
+    <span>Cargando facturas...</span>
+
+  </div>
+
+  <!-- TABLA -->
+
+  <table
+    *ngIf="!cargando"
+    class="recent-table"
+  >
+
+    <thead>
+
+      <tr>
+
+        <th>ESTABLECIMIENTO</th>
+
+        <th>CATEGORÍA</th>
+
+        <th>FECHA</th>
+
+        <th>MONTO</th>
+
+        <th>ESTADO</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let factura of facturas">
+
+        <!-- TIENDA -->
+
+        <td class="store-name">
+
+          {{ factura.tienda }}
+
+        </td>
+
+        <!-- CATEGORÍA -->
+
+        <td>
+
+          <span
+            class="category-badge"
+            [ngClass]="factura.categoria || 'categoria-default'"
+          >
+
+            {{ factura.categoria || 'Otros' }}
+
+          </span>
+
+        </td>
+
+        <!-- FECHA -->
+
+        <td class="date">
+
+          {{ factura.fecha }}
+
+        </td>
+
+        <!-- MONTO -->
+
+        <td class="amount">
+
+          $ {{ factura.total | number }}
+
+        </td>
+
+        <!-- ESTADO -->
+
+        <td>
+
+          <span
+            class="status-badge"
+            [ngClass]="obtenerClaseEstado(factura)"
+          >
+
+            {{ obtenerEstado(factura) }}
+
+          </span>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

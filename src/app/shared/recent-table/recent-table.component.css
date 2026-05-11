@@ -1,0 +1,332 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+.recent-table-card{
+
+  width:100%;
+
+  background:#fff;
+
+  border-radius:20px;
+
+  padding:24px;
+
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+
+  border:1px solid rgba(0,0,0,0.05);
+
+  animation:fadeIn .4s ease;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.table-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:24px;
+}
+
+.table-header h3{
+
+  font-size:22px;
+
+  color:#111827;
+
+  font-weight:700;
+}
+
+.view-all-btn{
+
+  border:none;
+
+  background:#eff6ff;
+
+  color:#2563eb;
+
+  padding:10px 16px;
+
+  border-radius:12px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.view-all-btn:hover{
+
+  background:#dbeafe;
+}
+
+/* =========================
+   TABLA
+========================= */
+
+.recent-table{
+
+  width:100%;
+
+  border-collapse:collapse;
+}
+
+.recent-table thead th{
+
+  text-align:left;
+
+  font-size:12px;
+
+  color:#64748b;
+
+  padding-bottom:18px;
+
+  font-weight:700;
+}
+
+.recent-table tbody tr{
+
+  border-top:1px solid #f1f5f9;
+
+  transition:.2s ease;
+}
+
+.recent-table tbody tr:hover{
+
+  background:#f8fafc;
+}
+
+.recent-table td{
+
+  padding:18px 0;
+
+  font-size:14px;
+
+  color:#0f172a;
+}
+
+/* =========================
+   STORE
+========================= */
+
+.store-name{
+
+  font-weight:700;
+
+  color:#111827;
+}
+
+/* =========================
+   FECHA
+========================= */
+
+.date{
+
+  color:#64748b;
+}
+
+/* =========================
+   MONTO
+========================= */
+
+.amount{
+
+  font-weight:700;
+
+  color:#111827;
+}
+
+/* =========================
+   CATEGORY BADGES
+========================= */
+
+.category-badge{
+
+  padding:7px 12px;
+
+  border-radius:10px;
+
+  font-size:12px;
+
+  font-weight:600;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+/* TECNOLOGÍA */
+
+.categoria-tech{
+
+  background:#dbeafe;
+
+  color:#2563eb;
+}
+
+/* HOGAR */
+
+.categoria-hogar{
+
+  background:#fef3c7;
+
+  color:#d97706;
+}
+
+/* RESTAURANTES */
+
+.categoria-food{
+
+  background:#dcfce7;
+
+  color:#16a34a;
+}
+
+/* SUPERMERCADO */
+
+.categoria-market{
+
+  background:#ede9fe;
+
+  color:#7c3aed;
+}
+
+/* TRANSPORTE */
+
+.categoria-transporte{
+
+  background:#fee2e2;
+
+  color:#dc2626;
+}
+
+/* DEFAULT */
+
+.categoria-default{
+
+  background:#e2e8f0;
+
+  color:#475569;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status-badge{
+
+  padding:7px 14px;
+
+  border-radius:999px;
+
+  font-size:11px;
+
+  font-weight:700;
+
+  letter-spacing:.4px;
+}
+
+/* PROCESADO */
+
+.estado-procesado{
+
+  background:#dcfce7;
+
+  color:#15803d;
+}
+
+/* REVISION */
+
+.estado-revision{
+
+  background:#dbeafe;
+
+  color:#2563eb;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading-box{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:30px 0;
+
+  justify-content:center;
+
+  color:#64748b;
+}
+
+.loader{
+
+  width:20px;
+
+  height:20px;
+
+  border-radius:50%;
+
+  border:3px solid #dbeafe;
+
+  border-top:3px solid #2563eb;
+
+  animation:spin .8s linear infinite;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes spin{
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes fadeIn{
+
+  from{
+
+    opacity:0;
+
+    transform:translateY(10px);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .recent-table{
+
+    display:block;
+
+    overflow-x:auto;
+  }
+}

@@ -13,4 +13,6 @@ export interface Factura {
   metodo_pago: string;
   items: Item[];
   categoria?: string;
+  nombre_archivo?: string;
+  estado?: string;
 }

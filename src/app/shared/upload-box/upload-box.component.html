@@ -1,63 +1,104 @@
 <!-- HTML -->
 <div class="sidebar-upload">
 
-  <!-- Zona principal -->
   <div class="upload-card">
+
     <h3 class="title">Subir Factura</h3>
+
     <p class="subtitle">
       Arrastra tus archivos aquí o haz clic para buscarlos
     </p>
 
+    <!-- ZONA UPLOAD -->
     <div class="upload-zone">
-      <div class="upload-icon">📄</div>
+
+      <div class="upload-icon">
+        📄
+      </div>
 
       <label class="upload-btn">
+
         Seleccionar Archivo
-        <input type="file" (change)="seleccionarArchivo($event)">
+
+        <input
+          type="file"
+          (change)="seleccionarArchivo($event)"
+        >
+
       </label>
 
-      <!-- Barra progreso -->
-      <div class="progress-box">
+      <!-- PROGRESS -->
+      <div
+        class="progress-box"
+        *ngIf="subiendo"
+      >
+
         <div class="progress-info">
-          <span class="processing">🔄 Procesando OCR...</span>
-          <span class="percent">75%</span>
+
+          <span class="processing">
+            🔄 Procesando OCR...
+          </span>
+
+          <span class="percent">
+            {{ progreso }}%
+          </span>
+
         </div>
 
         <div class="progress-bar">
-          <div class="progress-fill"
-          [style.width.%]="progreso"
+
+          <div
+            class="progress-fill"
+            [style.width.%]="progreso"
           ></div>
+
         </div>
+
       </div>
+
     </div>
 
-    <!-- Recientes -->
+    <!-- RECIENTES -->
     <div class="recent-section">
+
       <h4>Recientes</h4>
 
-      <div class="recent-item">
-        <div class="file-info">
-          <div class="file-icon">📄</div>
-          <div>
-            <p class="file-name">factura_apple_24.pdf</p>
-            <p class="file-time">Hace 2 horas</p>
-          </div>
-        </div>
-        <span class="check">✔</span>
-      </div>
+      <div
+        class="recent-item"
+        *ngFor="let item of ultimosArchivos"
+      >
 
-      <div class="recent-item">
         <div class="file-info">
-          <div class="file-icon">📄</div>
-          <div>
-            <p class="file-name">recibo_uber_test.png</p>
-            <p class="file-time">Hace 5 horas</p>
+
+          <div class="file-icon">
+            📄
           </div>
+
+          <div>
+
+            <p
+              class="file-name"
+              [attr.data-fullname]="item.nombre_archivo"
+            >
+              {{ item.nombre_archivo }}
+            </p>
+
+            <p class="file-time">
+              {{ item.fecha }}
+            </p>
+
+          </div>
+
         </div>
-        <span class="check">✔</span>
+
+        <span class="check">
+          ✔
+        </span>
+
       </div>
 
     </div>
+
   </div>
 
 </div>

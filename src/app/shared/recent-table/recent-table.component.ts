@@ -70,79 +70,37 @@ export class RecentTableComponent implements OnInit {
       });
   }
 
-  // =========================
-  // ESTADO DINÁMICO
-  // =========================
 
-  obtenerEstado(factura: Factura): string {
-
-    if (factura.categoria) {
-
-      return 'PROCESADO';
-    }
-
-    return 'REVISIÓN';
-  }
-
-  // =========================
-  // CLASES ESTADO
-  // =========================
-
-  obtenerClaseEstado(factura: Factura): string {
-
-    if (factura.categoria) {
-
-      return 'estado-procesado';
-    }
-
-    return 'estado-revision';
-  }
-
-  // =========================
-  // CLASES CATEGORÍA
-  // =========================
-
-  obtenerClaseCategoria(categoria: string): string {
-
-  const clases: any = {
-
-    'Tecnología': 'categoria-tech',
-
-    'Hogar': 'categoria-hogar',
-
-    'Restaurantes': 'categoria-food',
-
-    'Supermercado': 'categoria-market',
-
-    'Transporte': 'categoria-transporte',
-
-    'Salud': 'categoria-salud',
-
-    'Educación': 'categoria-education',
-
-    'Entretenimiento': 'categoria-entertainment',
-
-    'Ropa y Moda': 'categoria-fashion',
-
-    'Finanzas': 'categoria-finance',
-
-    'Servicios': 'categoria-services',
-
-    'Viajes': 'categoria-travel',
-
-    'Mascotas': 'categoria-pets',
-
-    'Deportes': 'categoria-sports',
-
-    'Belleza': 'categoria-beauty',
-
-    'Construcción': 'categoria-construction',
-
-    'Impuestos': 'categoria-tax',
-
-    'Otros': 'categoria-default'
-  };
-
-  return clases[categoria] || 'categoria-default';
+  obtenerEstado(factura: any): string {
+    return factura?.estado || 'Pendiente';
 }
+
+  obtenerClaseEstado(factura: any): string {
+
+    switch (factura?.estado) {
+
+      case 'Procesado':
+        return 'estado-procesado';
+
+      case 'Revisión':
+        return 'estado-revision';
+
+      case 'Pendiente':
+        return 'estado-pendiente';
+
+      case 'Error':
+        return 'estado-error';
+
+      case 'Duplicado':
+        return 'estado-duplicado';
+
+      case 'Rechazado':
+        return 'estado-rechazado';
+
+      default:
+        return 'estado-pendiente';
+    }
+  }
+
+
 }

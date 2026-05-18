@@ -8,58 +8,32 @@
   <!-- MAIN -->
   <main class="main-content">
 
+   <div class="dashboard-grid">
 
-    <!-- STATS -->
+  <!-- LEFT SIDE -->
+  <div class="left">
     <app-stat-card>
 
     </app-stat-card>
+    
+    <app-ai-insights
+    [data]="dashboardData"
+    mode="dashboard">
+    </app-ai-insights>
+    
+    <app-recent-table></app-recent-table>
 
+  </div>
 
-    <app-recent-table>
-      
-    </app-recent-table>
+  <!-- RIGHT SIDE -->
+  <div class="right">
 
-    <!-- FACTURAS 
-    <section class="history">
+    <app-upload-box></app-upload-box>
 
-      <div class="section-title">
-        <h2>Historial de Facturas</h2>
-      </div>
+  </div>
 
-      <div class="factura-card" *ngFor="let factura of facturas">
+</div>
 
-        <div class="factura-head">
-          <div>
-            <h3>{{ factura.tienda }}</h3>
-            <small>{{ factura.fecha }}</small>
-          </div>
-
-          <div class="price">
-            $ {{ factura.total | number }}
-          </div>
-        </div>
-
-        <div class="meta">
-          Método de pago: {{ factura.metodo_pago }}
-        </div>
-
-        <div class="items">
-
-          <div class="item-row" *ngFor="let item of factura.items">
-            <span>{{ item.description }}</span>
-            <strong>$ {{ item.valor | number }}</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section> -->
-
-    <!-- LOADER -->
-    <div class="loader" *ngIf="cargando">
-      Procesando OCR...
-    </div>
 
   </main>
 

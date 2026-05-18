@@ -255,6 +255,42 @@
   color:#2563eb;
 }
 
+/* PENDIENTE */
+
+.estado-pendiente{
+
+  background:#fef3c7;
+
+  color:#ca8a04;
+}
+
+/* ERROR */
+
+.estado-error{
+
+  background:#fee2e2;
+
+  color:#dc2626;
+}
+
+/* DUPLICADO */
+
+.estado-duplicado{
+
+  background:#ede9fe;
+
+  color:#7c3aed;
+}
+
+/* RECHAZADO */
+
+.estado-rechazado{
+
+  background:#fecaca;
+
+  color:#991b1b;
+}
+
 /* =========================
    LOADING
 ========================= */

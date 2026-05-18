@@ -5,11 +5,13 @@ import { Factura } from '../../models/factura.model';
 import { StatCardComponent } from '../../shared/stat-card/stat-card.component';
 import { Subscription } from 'rxjs';
 import { RecentTableComponent } from "../../shared/recent-table/recent-table.component";
+import { UploadBoxComponent } from "../../shared/upload-box/upload-box.component";
+import { AiInsightsComponent } from "../../shared/ai-insights/ai-insights.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, StatCardComponent, RecentTableComponent],
+  imports: [CommonModule, StatCardComponent, RecentTableComponent, UploadBoxComponent, AiInsightsComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -22,6 +24,8 @@ export class DashboardComponent implements OnInit {
   cantidadFacturas = 0;
   ultimaCompra = '';
   cargando = false;
+
+  dashboardData: any = null;
 
   refreshSubscription!: Subscription;
 

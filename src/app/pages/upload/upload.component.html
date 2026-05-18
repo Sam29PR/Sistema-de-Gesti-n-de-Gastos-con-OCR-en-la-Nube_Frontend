@@ -1,0 +1,162 @@
+<div class="upload-page">
+
+  <!-- HEADER -->
+
+  <div class="upload-header">
+
+    <h1>Subir Factura</h1>
+
+    <p>
+      Upload your financial documents for intelligent OCR processing.
+    </p>
+
+  </div>
+
+  <!-- CONTENT -->
+
+  <div class="upload-content">
+
+    <!-- LEFT -->
+
+    <div class="upload-box">
+
+      <!-- DROPZONE -->
+
+      <div
+        class="drop-zone"
+        [class.active]="dragActive"
+        (dragover)="onDragOver($event)"
+        (dragleave)="onDragLeave($event)"
+        (drop)="onDrop($event)"
+      >
+
+        <input
+          type="file"
+          #fileInput
+          hidden
+          accept=".pdf,.jpg,.jpeg,.png"
+          (change)="onFileSelected($event)"
+        >
+
+        <div class="drop-content">
+
+          <div class="upload-icon">
+            ☁️
+          </div>
+
+          <h2>Arrastra y suelta tus archivos aquí</h2>
+
+          <p>
+            Soportamos formatos PDF, JPG y PNG.
+          </p>
+
+          <p class="max-size">
+            Máximo 10MB por archivo.
+          </p>
+
+          <button
+            class="select-btn"
+            (click)="fileInput.click()"
+          >
+            Seleccionar archivo
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- FILE INFO -->
+
+      <div
+        class="file-info"
+        *ngIf="selectedFile"
+      >
+
+        <div>
+
+          <h4>{{ selectedFile.name }}</h4>
+
+          <span>
+            {{ selectedFile.size / 1024 | number:'1.0-0' }} KB
+          </span>
+
+        </div>
+
+        <button
+          class="upload-btn"
+          (click)="uploadFile()"
+          [disabled]="cargando"
+        >
+
+          {{ cargando ? 'Procesando...' : 'Subir factura' }}
+
+        </button>
+
+      </div>
+
+      <!-- PROGRESS -->
+
+      <div
+        class="progress-container"
+        *ngIf="cargando"
+      >
+
+        <div
+          class="progress-bar"
+          [style.width.%]="progreso"
+        ></div>
+
+      </div>
+
+      <!-- STATUS -->
+
+      <div class="status-text">
+
+        {{ estado }}
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+
+    <div class="side-panel">
+
+      <!-- AI INSIGHTS RESULT -->
+      <app-ai-insights
+      [data]="uploadResponse"
+      mode="invoice">
+
+      </app-ai-insights>
+
+      <div class="recent-box">
+
+        <h3>Cargas Recientes</h3>
+
+        <div class="recent-item">
+
+          <span>Factura_Oxxo.pdf</span>
+
+          <span class="success">
+            Completado
+          </span>
+
+        </div>
+
+        <div class="recent-item">
+
+          <span>Uber_Receipt.pdf</span>
+
+          <span class="processing">
+            Procesando
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

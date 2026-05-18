@@ -1,17 +1,14 @@
 <div class="app-container">
-    
-    <app-sidebar> </app-sidebar>
 
-<div class="main-content">
-    
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+
     <app-navbar></app-navbar>
 
-    <app-dashboard></app-dashboard>
+    <!-- AQUÍ CAMBIAN LAS PÁGINAS -->
+    <router-outlet></router-outlet>
+
+  </div>
+
 </div>
-
-<app-upload-box></app-upload-box>
-</div>
-
-
-
-<router-outlet />

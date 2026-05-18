@@ -7,12 +7,12 @@ import { UploadBoxComponent } from "./shared/upload-box/upload-box.component";
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
     RouterOutlet,
-    DashboardComponent,
     SidebarComponent,
     NavbarComponent,
-    UploadBoxComponent
+    
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

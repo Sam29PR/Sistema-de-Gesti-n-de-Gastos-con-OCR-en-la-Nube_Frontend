@@ -1,1 +1,21 @@
-<p>ai-insights works!</p>
+<div class="ai-container">
+
+  <h3>🤖 AI Insights</h3>
+
+  <p *ngIf="loading">Procesando...</p> 
+
+  <div *ngIf="result">
+
+    <p *ngIf="result.mode === 'mock'" style="color: orange;">
+      🟡 Modo gratis activo
+    </p>
+
+    <p *ngIf="result.mode === 'ai'" style="color: lightgreen;">
+      🟢 IA real activa
+    </p>
+
+    <pre>{{ result.insights }}</pre>
+
+  </div>
+
+</div>

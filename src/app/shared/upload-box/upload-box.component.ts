@@ -41,7 +41,7 @@ export class UploadBoxComponent implements OnInit {
 
       this.facturas = data;
 
-      this.ultimosArchivos = data.slice(0, 5);
+      this.ultimosArchivos = data.slice(0, 3);
 
       this.totalGastado = data.reduce((sum, f) => sum + f.total, 0);
 

@@ -6,21 +6,30 @@
 
   <div class="menu">
 
-    <div class="item active">
+    <div class="item" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <i class="fa-solid fa-chart-column fa-xl" style="color: #475569;"></i>
-      Dashboard</div>
-    <div class="item">
+      Dashboard
+    </div>
+
+    <div class="item" routerLink="/upload" routerLinkActive="active">
       <i class="fa-solid fa-upload fa-xl" style="color: #475569;"></i>
-      Upload</div>
+      Upload
+    </div>
+
     <div class="item">
       <i class="fa-solid fa-history fa-xl" style="color: #475569;"></i>
-      History</div>
+      History
+    </div>
+
     <div class="item">
       <i class="fa-solid fa-chart-bar fa-xl" style="color: #475569;"></i>
-      Reports</div>
+      Reports
+    </div>
+
     <div class="item">
       <i class="fa-solid fa-cog fa-xl" style="color: #475569;"></i>
-      Settings</div>
+      Settings
+    </div>
 
   </div>
 
